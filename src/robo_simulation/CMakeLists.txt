@@ -1,0 +1,34 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(robo_simulation)
+
+
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  rospy
+  unity_robotics_demo_msgs
+  message_generation
+)
+## System dependencies are found with CMake's conventions
+find_package(Boost REQUIRED COMPONENTS system)
+
+ # add_message_files(
+  # FILES
+  # PosRot.msg
+  # UnityColor.msg
+ #)
+
+catkin_package(
+  CATKIN_DEPENDS roscpp rospy message_runtime 
+)
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIRS}
+)
+
+add_executable(unity_subscribe src/unity_subscribe.cpp)
+#add_dependencies(unity_subscribe robo_simulation_generate_messages_cpp)
+target_link_libraries(unity_subscribe ${catkin_LIBRARIES})
+
+
+

@@ -1,0 +1,8 @@
+prefix=/home/akashleena/gazebo_unity_ros_ws/install
+
+Name: robo_simulation
+Description: Description of robo_simulation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy message_runtime
