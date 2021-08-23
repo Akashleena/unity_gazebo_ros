@@ -1,0 +1,8 @@
+prefix=/home/akashleena/gazebo_unity_ros_ws/install
+
+Name: cube_description
+Description: Description of cube_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

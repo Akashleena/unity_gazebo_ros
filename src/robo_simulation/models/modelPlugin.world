@@ -1,0 +1,66 @@
+<?xml version="1.0"?> 
+<sdf version="1.6">
+    <world name="default">
+        <static>true</static>
+        <!-- Ground Plane -->
+        <include>
+            <uri>model://ground_plane</uri>
+            <name>ground</name>
+        </include>
+
+        <include>
+            <uri>model://sun</uri>
+            <name>sun</name>
+        </include>
+
+        <include>
+            <pose>0 0 0.02 0 0 0</pose>
+            <uri>model://cube_20k</uri>
+            <name>cube_20k</name>
+        </include>
+
+    </world>
+</sdf>
+	<!--<model name='table'>
+            <link name='base'>
+                <pose>0 0 0.01 0 0 0</pose>
+                <collision name='base_colision'>
+                    <geometry>
+                        <box>
+                            <size>1 1 0.02</size>
+                        </box>
+                    </geometry>
+                </collision>
+                <visual name='base_visual'>
+                    <geometry>
+                        <box>
+                            <size>1 1 0.02</size>
+                        </box>
+                    </geometry>
+                </visual>
+            </link>
+            <joint name='anclaje' type='fixed'>
+                <pose relative_to='base'>0 0 0.01 0 0 0</pose>
+                <child>kinovaJaco::root</child>
+                <parent>base</parent>
+                <axis>
+                    <xyz>0 0 1</xyz>
+                    <limit>
+                        <upper>0</upper>
+                        <lower>0</lower>
+                    </limit>
+                </axis>
+            </joint>
+            <joint name='table_joint' type='fixed'>
+                <pose relative_to='base'>0 0 0.01 0 0 0</pose>
+                <child>base</child>
+                <parent>world</parent>
+                <axis>
+                    <xyz>0 0 1</xyz>
+                    <limit>
+                        <upper>0</upper>
+                        <lower>0</lower>
+                    </limit>
+                </axis>
+            </joint>
+        </model> -->

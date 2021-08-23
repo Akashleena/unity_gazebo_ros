@@ -68,17 +68,6 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -100,6 +89,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -166,21 +166,6 @@ preinstall/fast:
 depend:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/unity_subscribe.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/unity_subscribe.dir/rule
-.PHONY : robo_simulation/CMakeFiles/unity_subscribe.dir/rule
-
-# Convenience name for target.
-unity_subscribe: robo_simulation/CMakeFiles/unity_subscribe.dir/rule
-
-.PHONY : unity_subscribe
-
-# fast build rule for target.
-unity_subscribe/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_subscribe.dir/build.make robo_simulation/CMakeFiles/unity_subscribe.dir/build
-.PHONY : unity_subscribe/fast
 
 # Convenience name for target.
 robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_lisp.dir/rule:
@@ -286,6 +271,21 @@ rosgraph_msgs_generate_messages_nodejs: robo_simulation/CMakeFiles/rosgraph_msgs
 rosgraph_msgs_generate_messages_nodejs/fast:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+robo_simulation/CMakeFiles/GazeboPlugin.dir/rule:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/GazeboPlugin.dir/rule
+.PHONY : robo_simulation/CMakeFiles/GazeboPlugin.dir/rule
+
+# Convenience name for target.
+GazeboPlugin: robo_simulation/CMakeFiles/GazeboPlugin.dir/rule
+
+.PHONY : GazeboPlugin
+
+# fast build rule for target.
+GazeboPlugin/fast:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/GazeboPlugin.dir/build.make robo_simulation/CMakeFiles/GazeboPlugin.dir/build
+.PHONY : GazeboPlugin/fast
 
 # Convenience name for target.
 robo_simulation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
@@ -482,32 +482,32 @@ rosgraph_msgs_generate_messages_py/fast:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
-src/unity_subscribe.o: src/unity_subscribe.cpp.o
+src/GazeboPlugin.o: src/GazeboPlugin.cpp.o
 
-.PHONY : src/unity_subscribe.o
+.PHONY : src/GazeboPlugin.o
 
 # target to build an object file
-src/unity_subscribe.cpp.o:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_subscribe.dir/build.make robo_simulation/CMakeFiles/unity_subscribe.dir/src/unity_subscribe.cpp.o
-.PHONY : src/unity_subscribe.cpp.o
+src/GazeboPlugin.cpp.o:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/GazeboPlugin.dir/build.make robo_simulation/CMakeFiles/GazeboPlugin.dir/src/GazeboPlugin.cpp.o
+.PHONY : src/GazeboPlugin.cpp.o
 
-src/unity_subscribe.i: src/unity_subscribe.cpp.i
+src/GazeboPlugin.i: src/GazeboPlugin.cpp.i
 
-.PHONY : src/unity_subscribe.i
+.PHONY : src/GazeboPlugin.i
 
 # target to preprocess a source file
-src/unity_subscribe.cpp.i:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_subscribe.dir/build.make robo_simulation/CMakeFiles/unity_subscribe.dir/src/unity_subscribe.cpp.i
-.PHONY : src/unity_subscribe.cpp.i
+src/GazeboPlugin.cpp.i:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/GazeboPlugin.dir/build.make robo_simulation/CMakeFiles/GazeboPlugin.dir/src/GazeboPlugin.cpp.i
+.PHONY : src/GazeboPlugin.cpp.i
 
-src/unity_subscribe.s: src/unity_subscribe.cpp.s
+src/GazeboPlugin.s: src/GazeboPlugin.cpp.s
 
-.PHONY : src/unity_subscribe.s
+.PHONY : src/GazeboPlugin.s
 
 # target to generate assembly for a file
-src/unity_subscribe.cpp.s:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_subscribe.dir/build.make robo_simulation/CMakeFiles/unity_subscribe.dir/src/unity_subscribe.cpp.s
-.PHONY : src/unity_subscribe.cpp.s
+src/GazeboPlugin.cpp.s:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/GazeboPlugin.dir/build.make robo_simulation/CMakeFiles/GazeboPlugin.dir/src/GazeboPlugin.cpp.s
+.PHONY : src/GazeboPlugin.cpp.s
 
 # Help Target
 help:
@@ -516,10 +516,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/local"
-	@echo "... test"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... unity_subscribe"
+	@echo "... test"
 	@echo "... unity_robotics_demo_msgs_generate_messages_lisp"
 	@echo "... unity_robotics_demo_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_py"
@@ -528,6 +527,7 @@ help:
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... list_install_components"
+	@echo "... GazeboPlugin"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... install"
@@ -543,9 +543,9 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... src/unity_subscribe.o"
-	@echo "... src/unity_subscribe.i"
-	@echo "... src/unity_subscribe.s"
+	@echo "... src/GazeboPlugin.o"
+	@echo "... src/GazeboPlugin.i"
+	@echo "... src/GazeboPlugin.s"
 .PHONY : help
 
 

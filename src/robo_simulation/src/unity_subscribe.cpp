@@ -44,7 +44,7 @@ void poseCallback(const unity_robotics_demo_msgs::PosRot::ConstPtr & msg)
 int main(int argc, char **argv)
 {
  
-  ros::init(argc, argv, "unity_subscribe"); //node name
+  ros::init(argc, argv, "robo_simulation"); //node name
 
   
   ros::NodeHandle nh;

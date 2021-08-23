@@ -1,0 +1,8 @@
+prefix=/home/akashleena/gazebo_unity_ros_ws/devel
+
+Name: cube_gazebo
+Description: Description of cube_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
