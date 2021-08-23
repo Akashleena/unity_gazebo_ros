@@ -134,6 +134,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/akashleena/gazebo_unity_ros_ws/build/robo_simulation/cmake_install.cmake")
   include("/home/akashleena/gazebo_unity_ros_ws/build/cube_description/cmake_install.cmake")
   include("/home/akashleena/gazebo_unity_ros_ws/build/cube_gazebo/cmake_install.cmake")
+  include("/home/akashleena/gazebo_unity_ros_ws/build/effort_controllers/cmake_install.cmake")
+  include("/home/akashleena/gazebo_unity_ros_ws/build/cube_control/cmake_install.cmake")
 
 endif()
 
