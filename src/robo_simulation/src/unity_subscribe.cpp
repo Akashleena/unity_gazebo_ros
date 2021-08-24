@@ -1,27 +1,42 @@
 #include "ros/ros.h"
 #include "unity_robotics_demo_msgs/PosRot.h"
+#include<gazebo_msgs/ModelState.h>
 
 
 //std::vector<geometry_msgs::PoseStamped::ConstPtr> pose;
-
-double x_current = 0;
-double y_current = 0;
-double z_current = 0;
-double x_quat = 0;
-double y_quat = 0;
-double z_quat = 0;
-double w_quat = 0;
-double pos_x=0;
-double pos_y=0;
-double pos_z=0;
-double rot_x=0;
-double rot_y=0;
-double rot_z=0;
-double rot_w=0;
-unity_robotics_demo_msgs::PosRot msg;
-
-void poseCallback(const unity_robotics_demo_msgs::PosRot::ConstPtr & msg)
+class RoboSimulation
 {
+    public:
+    double x_current = 0;
+    double y_current = 0;
+    double z_current = 0;
+    double x_quat = 0;
+    double y_quat = 0;
+    double z_quat = 0;
+    double w_quat = 0;
+    double pos_x=0;
+    double pos_y=0;
+    double pos_z=0;
+    double rot_x=0;
+    double rot_y=0;
+    double rot_z=0;
+    double rot_w=0;
+    
+   RoboSimulation()
+   {
+   endPose_sub = nh.subscribe("/pos_rot", 1000, &RoboSimulation::poseCallback,this);
+   pose_pub = nh.advertise<gazebo_msgs::ModelState>("/gazebo/set_model_state", 50);
+   }
+
+    private:
+
+    ros::NodeHandle nh;
+    ros::Publisher  pose_pub;
+    ros::Subscriber endPose_sub;
+
+    void poseCallback(const unity_robotics_demo_msgs::PosRot::ConstPtr & msg)
+  {
+    //unity_robotics_demo_msgs::PosRot msg;
     ROS_INFO_STREAM("Received pose: " << msg);
     x_current = msg->pos_x;
     y_current = msg->pos_y;
@@ -39,20 +54,29 @@ void poseCallback(const unity_robotics_demo_msgs::PosRot::ConstPtr & msg)
         ROS_INFO_STREAM(y_quat);
         ROS_INFO_STREAM(z_quat);
         ROS_INFO_STREAM(w_quat);
-}
+  
+      
+      gazebo_msgs::ModelState ms;
+      ms.model_name="robot";
+      ms.reference_frame="world";
+      ms.pose.position.x=x_current;
+      ms.pose.position.y=y_current;
+      ms.pose.position.z=z_current;
+      ms.pose.orientation.x=x_quat;
+      ms.pose.orientation.y=y_quat;
+      ms.pose.orientation.z=z_quat;
+      ms.pose.orientation.w=w_quat;
+      ROS_INFO_STREAM("Publishing to gazebo \n");
+      pose_pub.publish(ms);
+
+  }
+};
 
 int main(int argc, char **argv)
 {
  
   ros::init(argc, argv, "robo_simulation"); //node name
-
-  
-  ros::NodeHandle nh;
-
-  ros::Subscriber endPose_sub = nh.subscribe("/pos_rot", 1000, poseCallback);
-
- 
-  ros::spin();
-
+  RoboSimulation rs;
+  ros::spinOnce();
   return 0;
 }
