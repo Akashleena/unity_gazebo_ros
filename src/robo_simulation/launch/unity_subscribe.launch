@@ -1,0 +1,3 @@
+<launch>
+<node pkg="robo_simulation" type="robo_simulation_node" name="robo_simulation" output="screen" />
+</launch>

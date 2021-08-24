@@ -22,6 +22,9 @@ find_package(catkin REQUIRED COMPONENTS
   xacro
   joint_state_publisher
   robot_state_publisher
+  unity_robotics_demo_msgs
+  message_generation
+  
 )
 
 ## System dependencies are found with CMake's conventions
@@ -87,5 +90,8 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
-
+#add_executable(unity_subscribe src/unity_subscribe.cpp)
+#add_dependencies(unity_subscribe ${unity_subscribe_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(unity_subscribe
+#  ${catkin_LIBRARIES})
 

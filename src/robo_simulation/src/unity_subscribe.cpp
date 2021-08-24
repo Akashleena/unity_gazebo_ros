@@ -24,8 +24,9 @@ class RoboSimulation
     
    RoboSimulation()
    {
-   endPose_sub = nh.subscribe("/pos_rot", 1000, &RoboSimulation::poseCallback,this);
+   endPose_sub = nh.subscribe("/pos_rot", 50, &RoboSimulation::poseCallback,this);
    pose_pub = nh.advertise<gazebo_msgs::ModelState>("/gazebo/set_model_state", 50);
+   ROS_INFO_STREAM("inside constructor \n");
    }
 
     private:
@@ -76,7 +77,11 @@ int main(int argc, char **argv)
 {
  
   ros::init(argc, argv, "robo_simulation"); //node name
+  
+  ROS_INFO_STREAM("inside main \n");
   RoboSimulation rs;
-  ros::spinOnce();
+  ros::Rate rate(50.0);
+  ros::spin();
+  rate.sleep();
   return 0;
 }

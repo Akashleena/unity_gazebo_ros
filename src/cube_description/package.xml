@@ -25,7 +25,11 @@
   <build_depend>urdf</build_depend>
   <build_depend>xacro</build_depend>
    <build_depend>rviz</build_depend>
-    <build_depend>robot_state_publisher</build_depend>
+  <build_depend>unity_robotics_demo_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+   <build_depend>message_generation</build_depend>
+   <build_depend>gazebo_msgs</build_depend>
+  <build_depend>robot_state_publisher</build_depend>
   <build_export_depend>gazebo_msgs</build_export_depend>
   <build_export_depend>gazebo_plugins</build_export_depend>
   <build_export_depend>gazebo_ros</build_export_depend>
@@ -40,6 +44,9 @@
   <build_export_depend>xacro</build_export_depend>
   <build_export_depend>robot_state_publisher</build_export_depend>
   <build_export_depend>rviz</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>gazebo_msgs</build_export_depend>
+
   <exec_depend>gazebo_msgs</exec_depend>
   <exec_depend>gazebo_plugins</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
@@ -54,6 +61,10 @@
   <exec_depend>rviz</exec_depend>
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>unity_robotics_demo_msgs</exec_depend>
+  <exec_depend>gazebo_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+ 
 
  <!-- <exec_depend>gazebo_world</exec_depend>-->
 
