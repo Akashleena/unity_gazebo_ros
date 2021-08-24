@@ -13,10 +13,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
 
- # add_message_files(
-  # FILES
-  # PosRot.msg
-  # UnityColor.msg
+  #add_message_files(
+   #FILES
+   #PosRot.msg
+   #UnityColor.msg
  #)
 
 
@@ -36,9 +36,9 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 #add_dependencies(unity_subscribe robo_simulation_generate_messages_cpp)
 #target_link_libraries(unity_subscribe ${catkin_LIBRARIES})
 
-#add_executable(unity_subscribe src/unity_subscribe.cpp)
-#add_dependencies(unity_subscribe ${unity_subscribe_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-#target_link_libraries(unity_subscribe
- #  ${catkin_LIBRARIES}
- #)
+add_executable(unity_subscribe src/unity_subscribe.cpp)
+add_dependencies(unity_subscribe ${unity_subscribe_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(unity_subscribe
+  ${catkin_LIBRARIES}
+)
 

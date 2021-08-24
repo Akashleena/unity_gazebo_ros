@@ -23,13 +23,13 @@ unity_robotics_demo_msgs::PosRot msg;
 void poseCallback(const unity_robotics_demo_msgs::PosRot::ConstPtr & msg)
 {
     ROS_INFO_STREAM("Received pose: " << msg);
-    x_current = msg.pos_x;
-    y_current = msg.pos_y;
-    z_current = msg.pos_z;
-    x_quat = msg.rot_x;
-    y_quat = msg.rot_y;
-    z_quat = msg.rot_z;
-    w_quat = msg.rot_w;
+    x_current = msg->pos_x;
+    y_current = msg->pos_y;
+    z_current = msg->pos_z;
+    x_quat = msg->rot_x;
+    y_quat = msg->rot_y;
+    z_quat = msg->rot_z;
+    w_quat = msg->rot_w;
 
     ROS_INFO_STREAM("Pose received \n");
         ROS_INFO_STREAM(x_current);

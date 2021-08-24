@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+/home/akashleena/gazebo_unity_ros_ws/devel/include/unity_robotics_demo_msgs/PosRot.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/akashleena/gazebo_unity_ros_ws/src/robo_simulation/src/unity_subscribe.cpp
 ros/ros.h
 /home/akashleena/gazebo_unity_ros_ws/src/robo_simulation/src/ros/ros.h
@@ -220,6 +236,10 @@ boost/make_shared.hpp
 cstddef
 -
 memory
+-
+
+/opt/ros/noetic/include/ros/message_operations.h
+ostream
 -
 
 /opt/ros/noetic/include/ros/message_traits.h

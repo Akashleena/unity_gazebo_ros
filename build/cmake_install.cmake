@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/akashleena/gazebo_unity_ros_ws/build/gtest/cmake_install.cmake")
+  include("/home/akashleena/gazebo_unity_ros_ws/build/unity_robotics_demo_msgs/cmake_install.cmake")
   include("/home/akashleena/gazebo_unity_ros_ws/build/robo_simulation/cmake_install.cmake")
   include("/home/akashleena/gazebo_unity_ros_ws/build/cube_description/cmake_install.cmake")
   include("/home/akashleena/gazebo_unity_ros_ws/build/cube_gazebo/cmake_install.cmake")

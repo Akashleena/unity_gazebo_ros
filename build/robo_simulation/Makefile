@@ -56,6 +56,18 @@ CMAKE_BINARY_DIR = /home/akashleena/gazebo_unity_ros_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -67,39 +79,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -123,17 +102,38 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,66 +166,6 @@ preinstall/fast:
 depend:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_lisp.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_lisp.dir/rule
-.PHONY : robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-unity_robotics_demo_msgs_generate_messages_lisp: robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : unity_robotics_demo_msgs_generate_messages_lisp
-
-# fast build rule for target.
-unity_robotics_demo_msgs_generate_messages_lisp/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_lisp.dir/build.make robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_lisp.dir/build
-.PHONY : unity_robotics_demo_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_cpp.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_cpp.dir/rule
-.PHONY : robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-unity_robotics_demo_msgs_generate_messages_cpp: robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : unity_robotics_demo_msgs_generate_messages_cpp
-
-# fast build rule for target.
-unity_robotics_demo_msgs_generate_messages_cpp/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_cpp.dir/build.make robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_cpp.dir/build
-.PHONY : unity_robotics_demo_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : robo_simulation/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: robo_simulation/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/std_msgs_generate_messages_py.dir/build.make robo_simulation/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : robo_simulation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: robo_simulation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make robo_simulation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 robo_simulation/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -288,21 +228,6 @@ GazeboPlugin/fast:
 .PHONY : GazeboPlugin/fast
 
 # Convenience name for target.
-robo_simulation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : robo_simulation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: robo_simulation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make robo_simulation/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
 robo_simulation/CMakeFiles/roscpp_generate_messages_py.dir/rule:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/roscpp_generate_messages_py.dir/rule
 .PHONY : robo_simulation/CMakeFiles/roscpp_generate_messages_py.dir/rule
@@ -316,51 +241,6 @@ roscpp_generate_messages_py: robo_simulation/CMakeFiles/roscpp_generate_messages
 roscpp_generate_messages_py/fast:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/roscpp_generate_messages_py.dir/build.make robo_simulation/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_py.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_py.dir/rule
-.PHONY : robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-unity_robotics_demo_msgs_generate_messages_py: robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_py.dir/rule
-
-.PHONY : unity_robotics_demo_msgs_generate_messages_py
-
-# fast build rule for target.
-unity_robotics_demo_msgs_generate_messages_py/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_py.dir/build.make robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_py.dir/build
-.PHONY : unity_robotics_demo_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_nodejs.dir/rule
-.PHONY : robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-unity_robotics_demo_msgs_generate_messages_nodejs: robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : unity_robotics_demo_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-unity_robotics_demo_msgs_generate_messages_nodejs/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_nodejs.dir/build.make robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_nodejs.dir/build
-.PHONY : unity_robotics_demo_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : robo_simulation/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: robo_simulation/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make robo_simulation/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 robo_simulation/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
@@ -391,36 +271,6 @@ rosgraph_msgs_generate_messages_cpp: robo_simulation/CMakeFiles/rosgraph_msgs_ge
 rosgraph_msgs_generate_messages_cpp/fast:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : robo_simulation/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: robo_simulation/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make robo_simulation/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_eus.dir/rule:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_eus.dir/rule
-.PHONY : robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-unity_robotics_demo_msgs_generate_messages_eus: robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_eus.dir/rule
-
-.PHONY : unity_robotics_demo_msgs_generate_messages_eus
-
-# fast build rule for target.
-unity_robotics_demo_msgs_generate_messages_eus/fast:
-	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_eus.dir/build.make robo_simulation/CMakeFiles/unity_robotics_demo_msgs_generate_messages_eus.dir/build
-.PHONY : unity_robotics_demo_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
@@ -482,6 +332,21 @@ rosgraph_msgs_generate_messages_py/fast:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make robo_simulation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
+# Convenience name for target.
+robo_simulation/CMakeFiles/unity_subscribe.dir/rule:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robo_simulation/CMakeFiles/unity_subscribe.dir/rule
+.PHONY : robo_simulation/CMakeFiles/unity_subscribe.dir/rule
+
+# Convenience name for target.
+unity_subscribe: robo_simulation/CMakeFiles/unity_subscribe.dir/rule
+
+.PHONY : unity_subscribe
+
+# fast build rule for target.
+unity_subscribe/fast:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_subscribe.dir/build.make robo_simulation/CMakeFiles/unity_subscribe.dir/build
+.PHONY : unity_subscribe/fast
+
 src/GazeboPlugin.o: src/GazeboPlugin.cpp.o
 
 .PHONY : src/GazeboPlugin.o
@@ -509,43 +374,64 @@ src/GazeboPlugin.cpp.s:
 	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/GazeboPlugin.dir/build.make robo_simulation/CMakeFiles/GazeboPlugin.dir/src/GazeboPlugin.cpp.s
 .PHONY : src/GazeboPlugin.cpp.s
 
+src/unity_subscribe.o: src/unity_subscribe.cpp.o
+
+.PHONY : src/unity_subscribe.o
+
+# target to build an object file
+src/unity_subscribe.cpp.o:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_subscribe.dir/build.make robo_simulation/CMakeFiles/unity_subscribe.dir/src/unity_subscribe.cpp.o
+.PHONY : src/unity_subscribe.cpp.o
+
+src/unity_subscribe.i: src/unity_subscribe.cpp.i
+
+.PHONY : src/unity_subscribe.i
+
+# target to preprocess a source file
+src/unity_subscribe.cpp.i:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_subscribe.dir/build.make robo_simulation/CMakeFiles/unity_subscribe.dir/src/unity_subscribe.cpp.i
+.PHONY : src/unity_subscribe.cpp.i
+
+src/unity_subscribe.s: src/unity_subscribe.cpp.s
+
+.PHONY : src/unity_subscribe.s
+
+# target to generate assembly for a file
+src/unity_subscribe.cpp.s:
+	cd /home/akashleena/gazebo_unity_ros_ws/build && $(MAKE) -f robo_simulation/CMakeFiles/unity_subscribe.dir/build.make robo_simulation/CMakeFiles/unity_subscribe.dir/src/unity_subscribe.cpp.s
+.PHONY : src/unity_subscribe.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... unity_robotics_demo_msgs_generate_messages_lisp"
-	@echo "... unity_robotics_demo_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... list_install_components"
 	@echo "... GazeboPlugin"
-	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... install"
-	@echo "... unity_robotics_demo_msgs_generate_messages_py"
-	@echo "... unity_robotics_demo_msgs_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... install/strip"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... unity_robotics_demo_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... test"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... unity_subscribe"
 	@echo "... src/GazeboPlugin.o"
 	@echo "... src/GazeboPlugin.i"
 	@echo "... src/GazeboPlugin.s"
+	@echo "... src/unity_subscribe.o"
+	@echo "... src/unity_subscribe.i"
+	@echo "... src/unity_subscribe.s"
 .PHONY : help
 
 
