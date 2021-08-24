@@ -6,6 +6,8 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("unity_robotics_demo_msgs")
+subdirs("file_server")
+subdirs("ROS-TCP-Endpoint")
 subdirs("robo_simulation")
 subdirs("cube_description")
 subdirs("cube_gazebo")
