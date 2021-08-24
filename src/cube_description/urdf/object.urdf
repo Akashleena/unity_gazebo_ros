@@ -64,9 +64,22 @@
     </joint>
 
   <!-- Gazebo plugin for ROS Control -->
+  <!-- To make the robot move-->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/simple_box</robotNamespace>
     </plugin>
   </gazebo>
+<!-- Add the transmission part to actuate the robot-->
+ <transmission name="inertia_wheel_roll_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="inertia_wheel_roll_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="inertia_wheel_roll_jointMotor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
 </robot>
