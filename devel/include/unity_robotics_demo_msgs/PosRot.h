@@ -189,6 +189,7 @@ struct Definition< ::unity_robotics_demo_msgs::PosRot_<ContainerAllocator> >
 "float32 rot_y\n"
 "float32 rot_z\n"
 "float32 rot_w\n"
+"\n"
 ;
   }
 

@@ -49,10 +49,10 @@
   "5190f887b70decc2fafe0ae2939b233a")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<PositionService-request>)))
   "Returns full string definition for message of type '<PositionService-request>"
-  (cl:format cl:nil "PosRot input~%~%================================================================================~%MSG: unity_robotics_demo_msgs/PosRot~%float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%"))
+  (cl:format cl:nil "PosRot input~%~%================================================================================~%MSG: unity_robotics_demo_msgs/PosRot~%float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'PositionService-request)))
   "Returns full string definition for message of type 'PositionService-request"
-  (cl:format cl:nil "PosRot input~%~%================================================================================~%MSG: unity_robotics_demo_msgs/PosRot~%float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%"))
+  (cl:format cl:nil "PosRot input~%~%================================================================================~%MSG: unity_robotics_demo_msgs/PosRot~%float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <PositionService-request>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'input))
@@ -107,10 +107,10 @@
   "5190f887b70decc2fafe0ae2939b233a")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<PositionService-response>)))
   "Returns full string definition for message of type '<PositionService-response>"
-  (cl:format cl:nil "PosRot output~%~%================================================================================~%MSG: unity_robotics_demo_msgs/PosRot~%float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%"))
+  (cl:format cl:nil "PosRot output~%~%================================================================================~%MSG: unity_robotics_demo_msgs/PosRot~%float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'PositionService-response)))
   "Returns full string definition for message of type 'PositionService-response"
-  (cl:format cl:nil "PosRot output~%~%================================================================================~%MSG: unity_robotics_demo_msgs/PosRot~%float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%"))
+  (cl:format cl:nil "PosRot output~%~%================================================================================~%MSG: unity_robotics_demo_msgs/PosRot~%float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <PositionService-response>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'output))

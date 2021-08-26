@@ -184,10 +184,10 @@
   "9869d8cce41ebbf62de929a1dd9fa7ce")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<PosRot>)))
   "Returns full string definition for message of type '<PosRot>"
-  (cl:format cl:nil "float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%"))
+  (cl:format cl:nil "float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'PosRot)))
   "Returns full string definition for message of type 'PosRot"
-  (cl:format cl:nil "float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%"))
+  (cl:format cl:nil "float32 pos_x~%float32 pos_y~%float32 pos_z~%float32 rot_x~%float32 rot_y~%float32 rot_z~%float32 rot_w~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <PosRot>))
   (cl:+ 0
      4

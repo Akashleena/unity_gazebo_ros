@@ -22,7 +22,9 @@ float32 pos_z
 float32 rot_x
 float32 rot_y
 float32 rot_z
-float32 rot_w"""
+float32 rot_w
+
+"""
   __slots__ = ['input']
   _slot_types = ['unity_robotics_demo_msgs/PosRot']
 
@@ -151,7 +153,9 @@ float32 pos_z
 float32 rot_x
 float32 rot_y
 float32 rot_z
-float32 rot_w"""
+float32 rot_w
+
+"""
   __slots__ = ['output']
   _slot_types = ['unity_robotics_demo_msgs/PosRot']
 

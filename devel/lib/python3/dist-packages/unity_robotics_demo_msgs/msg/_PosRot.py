@@ -17,7 +17,9 @@ float32 pos_z
 float32 rot_x
 float32 rot_y
 float32 rot_z
-float32 rot_w"""
+float32 rot_w
+
+"""
   __slots__ = ['pos_x','pos_y','pos_z','rot_x','rot_y','rot_z','rot_w']
   _slot_types = ['float32','float32','float32','float32','float32','float32','float32']
 

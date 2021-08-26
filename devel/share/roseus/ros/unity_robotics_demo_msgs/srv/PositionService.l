@@ -125,6 +125,8 @@ float32 pos_z
 float32 rot_x
 float32 rot_y
 float32 rot_z
+float32 rot_w
+
 ---
 PosRot output
 
@@ -136,6 +138,8 @@ float32 pos_z
 float32 rot_x
 float32 rot_y
 float32 rot_z
+float32 rot_w
+
 ")
 
 (setf (get unity_robotics_demo_msgs::PositionServiceResponse :md5sum-) "5190f887b70decc2fafe0ae2939b233a")
@@ -151,6 +155,8 @@ float32 pos_z
 float32 rot_x
 float32 rot_y
 float32 rot_z
+float32 rot_w
+
 ---
 PosRot output
 
@@ -162,6 +168,8 @@ float32 pos_z
 float32 rot_x
 float32 rot_y
 float32 rot_z
+float32 rot_w
+
 ")
 
 

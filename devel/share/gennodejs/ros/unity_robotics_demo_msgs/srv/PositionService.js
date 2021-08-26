@@ -78,6 +78,8 @@ class PositionServiceRequest {
     float32 rot_y
     float32 rot_z
     float32 rot_w
+    
+    
     `;
   }
 
@@ -158,6 +160,8 @@ class PositionServiceResponse {
     float32 rot_y
     float32 rot_z
     float32 rot_w
+    
+    
     `;
   }
 
