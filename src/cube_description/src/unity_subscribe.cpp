@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include "unity_robotics_demo_msgs/PosRot.h"
-#include<gazebo_msgs/ModelState.h>
-
+// #include<gazebo_msgs/ModelState.h>
+#include <gazebo_msgs/SetModelState.h>
 
 //std::vector<geometry_msgs::PoseStamped::ConstPtr> pose;
 class RoboSimulation
@@ -25,7 +25,8 @@ class RoboSimulation
    RoboSimulation()
    {
    endPose_sub = nh.subscribe("/pos_rot", 50, &RoboSimulation::poseCallback,this);
-   pose_pub = nh.advertise<gazebo_msgs::ModelState>("/gazebo/set_model_state", 50);
+   //pose_pub = nh.advertise<gazebo_msgs::ModelState>("/gazebo/set_model_state", 50);
+  ros::ServiceClient client = nh.serviceClient<gazebo_msgs::SetModelState>("/gazebo/set_model_state");
    ROS_INFO_STREAM("inside constructor \n");
    }
 
@@ -56,7 +57,7 @@ class RoboSimulation
         ROS_INFO_STREAM(z_quat);
         ROS_INFO_STREAM(w_quat);
   
-      
+      /*
       gazebo_msgs::ModelState ms;
       ms.model_name="robot";
       ms.reference_frame="world";
@@ -68,7 +69,43 @@ class RoboSimulation
       ms.pose.orientation.z=z_quat;
       ms.pose.orientation.w=w_quat;
       ROS_INFO_STREAM("Publishing to gazebo \n");
-      pose_pub.publish(ms);
+      pose_pub.publish(ms);*/
+
+      //cube Position
+    geometry_msgs::Point cube_position;
+    cube_position.x = x_current;
+    cube_position.y = y_current;
+    cube_position.z = z_current;
+    //cube orientation
+    geometry_msgs::Quaternion cube_orientation;
+    cube_orientation.x = x_quat;
+    cube_orientation.y = y_quat;
+    cube_orientation.z = z_quat;
+    cube_orientation.w = w_quat;
+
+    //cube pose (Pose + Orientation)
+    geometry_msgs::Pose cube_pose;
+    cube_pose.position = cube_position;
+    cube_pose.orientation = cube_orientation;
+
+    //ModelState
+    gazebo_msgs::ModelState cube_modelstate;
+    cube_modelstate.model_name = (std::string) "robot";
+    cube_modelstate.pose = cube_pose;
+
+    //gazebo pose
+    gazebo_msgs::SetModelState srv;
+    srv.request.model_state = cube_modelstate;
+
+    //Server
+    if(client.call(srv))
+    {
+        ROS_INFO("cube magic moving success!!");
+    }
+    else
+    {
+        ROS_ERROR("Failed to magic move cube! Error msg:%s",srv.response.status_message.c_str());
+    }
 
   }
 };

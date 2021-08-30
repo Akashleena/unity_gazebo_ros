@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   unity_robotics_demo_msgs
   message_generation
   gazebo_msgs
+  std_msgs
   
 )
 ## System dependencies are found with CMake's conventions
@@ -23,7 +24,7 @@ find_package(Boost REQUIRED COMPONENTS system)
 
 
 catkin_package(
-  CATKIN_DEPENDS roscpp rospy message_runtime 
+  CATKIN_DEPENDS roscpp rospy message_runtime std_msgs
 )
 include_directories(
   include

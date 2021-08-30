@@ -5,4 +5,4 @@ Description: Description of robo_simulation
 Version: 0.0.0
 Cflags: 
 Libs: -L${prefix}/lib 
-Requires: roscpp rospy message_runtime
+Requires: roscpp rospy message_runtime std_msgs
