@@ -105,13 +105,12 @@ int main(int argc, char **argv)
   ROS_INFO_STREAM("inside main \n");
   RoboSimulation rs;
   
-  ros::Rate rate(10);
-  while (ros::ok())
-  {
-  RoboSimulation rs;
+  //ros::Rate rate(10);
+
+  //RoboSimulation rs;
 
   ros::spin();
-  rate.sleep();
+  //rate.sleep();
   return 0;
-  }
+  
 }
