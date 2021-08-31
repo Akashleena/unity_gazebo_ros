@@ -25,14 +25,14 @@
         <mu2>1000000.0</mu2>-->
     <material>Gazebo/Grey</material>
   </gazebo>
- <link name="world"/>
+ <!-- <link name="world"/> -->
 
-  <joint name="base" type="continuous">
+  <!-- <joint name="base" type="continuous">
     <parent link="world"/>
     <child link="my_box"/>
      <axis xyz="0 0 -1"/>
     <origin xyz="0 0 1"/>
-  </joint>
+  </joint> -->
 
 
 <!-- add the wheels-->
@@ -75,11 +75,11 @@
 -->
   <!-- Gazebo plugin for ROS Control -->
   <!-- To make the robot move-->
-  <gazebo>
+  <!-- <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/simple_box</robotNamespace>
     </plugin>
-  </gazebo>
+  </gazebo>--> 
   
 <!-- Add the transmission part to actuate the robot-->
 <!-- <transmission name="inertia_wheel_roll_joint_trans">
