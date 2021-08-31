@@ -108,7 +108,7 @@ int main(int argc, char **argv)
   ros::Rate rate(10);
   while (ros::ok())
   {
-  
+  RoboSimulation rs;
 
   ros::spin();
   rate.sleep();
