@@ -15,7 +15,7 @@ class RoboSimulation
     double z_current;
     double x_quat;
     double y_quat;
-    double z_quat;
+    double z_quat; 
     double w_quat;
     double pos_x;
     double pos_y;
