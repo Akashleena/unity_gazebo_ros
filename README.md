@@ -26,7 +26,7 @@ In the third terminal spawn the cube in the gazebo world
 source devel/setup.bash
 roslaunch cube_description gazebo.launch
 ```
-In the fourth terminal start the ROS service client and the robo_simulation node that subcribes to unity topic and sends the pose to Gazebo cube model
+In the fourth terminal start the ROS service client and the robo_simulation node that subcribes to unity /pos_rot topic and sends the pose to Gazebo cube model
 
 ```
 rosrun robo_simulation unity_subscribe
